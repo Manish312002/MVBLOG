@@ -129,5 +129,225 @@
       }
       ```
   
+- **GET /profile**
+
+  Retrieves the profile information of the logged-in user (requires authentication).
+
+  - **Headers:**
+    - **Cookie:** `token=<jwt_token>`
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "username": "string",
+        "id": "number"
+      }
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "No token provided" // or "Invalid token"
+      }
+      ```
+
+- **POST /logout**
+
+  Logs out the current user by clearing the JWT token.
+
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "message": "Logout"
+      }
+      ```
+
+### Blog Posts
+
+- **POST /create_post**
+
+  Creates a new blog post (requires authentication).
+
+  - **Request Body:**
+    ```json
+    {
+      "title": "string",
+      "contentType": "string",
+      "summary": "string",
+      "content": "string"
+    }
+    ```
+  - **File Upload:**
+    - **File:** `file` (optional)
+  - **Headers:**
+    - **Cookie:** `token=<jwt_token>`
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "message": "Success"
+      }
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "Error message here" // Specific error message
+      }
+      ```
+
+- **GET /posts**
+
+  Retrieves a list of blog posts, sorted randomly and limited to 20.
+
+  - **Response:**
+    - **Success:**
+      ```json
+      [
+        {
+          "id": "number",
+          "title": "string",
+          "contentType": "string",
+          "summary": "string",
+          "author": "string",
+          "content": "string",
+          "filepath": "string"
+        }
+      ]
+      ```
+
+- **GET /my_Posts**
+
+  Retrieves blog posts created by the logged-in user (requires authentication).
+
+  - **Headers:**
+    - **Cookie:** `token=<jwt_token>`
+  - **Response:**
+    - **Success:**
+      ```json
+      [
+        {
+          "id": "number",
+          "title": "string",
+          "contentType": "string",
+          "summary": "string",
+          "author": "string",
+          "content": "string",
+          "filepath": "string"
+        }
+      ]
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "No token provided" // or "Invalid token"
+      }
+      ```
+
+- **GET /delete/:id**
+
+  Deletes a blog post by ID (requires authentication).
+
+  - **Parameters:**
+    - **Path Parameter:** `id` (Post ID)
+  - **Headers:**
+    - **Cookie:** `token=<jwt_token>`
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "message": "Post {id} deleted"
+      }
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "Error message here" // Specific error message
+      }
+      ```
+
+- **GET /post/:id**
+
+  Retrieves a single blog post by ID.
+
+  - **Parameters:**
+    - **Path Parameter:** `id` (Post ID)
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "id": "number",
+        "title": "string",
+        "contentType": "string",
+        "summary": "string",
+        "author": "string",
+        "content": "string",
+        "filepath": "string"
+      }
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "Failed to get post" // or other error messages
+      }
+      ```
+
+- **GET /edit/:id**
+
+  Retrieves the details of a blog post for editing by ID.
+
+  - **Parameters:**
+    - **Path Parameter:** `id` (Post ID)
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "id": "number",
+        "title": "string",
+        "contentType": "string",
+        "summary": "string",
+        "author": "string",
+        "content": "string",
+        "filepath": "string"
+      }
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "Failed to get post" // or other error messages
+      }
+      ```
+
+- **POST /edit/:id**
+
+  Edits an existing blog post by ID (requires authentication).
+
+  - **Request Body:**
+    ```json
+    {
+      "title": "string",
+      "contentType": "string",
+      "summary": "string",
+      "content": "string"
+    }
+    ```
+  - **File Upload:**
+    - **File:** `file` (optional)
+  - **Parameters:**
+    - **Path Parameter:** `id` (Post ID)
+  - **Headers:**
+    - **Cookie:** `token=<jwt_token>`
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "message": "Success"
+      }
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "Failed to Update post" // or other error messages
+      }
+      ```
 
      

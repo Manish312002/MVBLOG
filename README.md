@@ -23,6 +23,29 @@
 - **dotenv**: For managing environment variables.
 - **Cookie-Parser**: For handling cookies.
 
+## Topics 
+
+   - Node.js: The runtime environment used for the server-side code.
+   - Express: The web framework used to build the API.
+   - PostgreSQL: The database system used to store data.
+   - JWT: JSON Web Tokens used for authentication.
+   - bcrypt: Library used for hashing passwords.
+   - Multer: Middleware for handling file uploads.
+   - File Uploads: Feature of the application to handle image and file uploads.
+   - Web Application: A general term for applications accessed via web browsers.
+   - API: Application Programming Interface, a crucial part of the project.
+   - Authentication: The process of verifying user identity.
+   - Blog: The primary functionality of the project.
+   - Full Stack: The project involves both frontend and backend components.
+   - Open Source: Indicates that the project is open for public contributions.
+   - JavaScript: The programming language used.
+   - Backend: Refers to the server-side part of the application.
+   - CRUD: Create, Read, Update, Delete operations.
+   - REST API: Representational State Transfer API, a common architectural style for web services.
+   - Middleware: Functions that execute during the request-response cycle.
+   - Cors: Middleware for enabling Cross-Origin Resource Sharing.
+   - Dotenv: Library for managing environment variables.
+
 ## Installation
 
 ### Prerequisites

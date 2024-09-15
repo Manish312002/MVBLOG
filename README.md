@@ -102,4 +102,32 @@
       }
       ```
 
+ 
+- **POST /login**
+
+  Logs in a user and returns a JWT token.
+
+  - **Request Body:**
+    ```json
+    {
+      "username": "string",
+      "password": "string"
+    }
+    ```
+  - **Response:**
+    - **Success:**
+      ```json
+      {
+        "id": "number",
+        "username": "string"
+      }
+      ```
+    - **Error:**
+      ```json
+      {
+        "message": "Incorrect password" // or "User not found, Try again!"
+      }
+      ```
+  
+
      
